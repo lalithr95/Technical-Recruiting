@@ -47,12 +47,13 @@
       </form>
       <ul class="nav navbar-nav navbar-right">
         <li><a href="http://localhost/test/index.php/jobs">Jobs</a></li>
+        <li><a href="http://localhost/test/index.php/assigned/interviews/">Interviews</a></li>
         <li><a href="http://localhost/test/index.php/assigned/view">Assigned</a></li>
         <li><a href="http://localhost/test/index.php/dashboard">Dashboard</a></li>
         <li class="dropdown">
           <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">User<span class="caret"></span></a>
           <ul class="dropdown-menu" role="menu">
-            <li><a href="#">Jobs</a></li>
+            <li><a href="http://localhost/test/index.php/home/logout">Logout</a></li>
             <li><a href="#">About</a></li>
           </ul>
         </li>

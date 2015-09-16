@@ -22,12 +22,15 @@ class Applicant extends CI_Controller
 			$user = $this->user_model->get_user($id);
 
 			$this->load->model('assigne_model');
+			$this->load->model('interviewpad_model');
 			$data = $this->assigne_model->get_applicant($id);
+			$rating_data = $this->interviewpad_model->get_rating($user[0]['email'], $this->session->userdata('email'));
 			$result = array(
 					'data' => $data,
-					'user' => $user[0]
+					'user' => $user[0],
+					'rate' => $rating_data
 				);
-			print_r($result['data']);
+			// print_r($result['data']);
 			$this->load->view('applicant_index', $result);
 		}
 	}

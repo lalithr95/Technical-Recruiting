@@ -3,7 +3,7 @@
 	    <div class="row">
 	        <div class="col-md-6 col-md-offset-3">
 	        	<h4> Interview : <?php echo $name; ?></h4>
-	            <form class="form-horizontal" action="https://localhost/test/index.php/interviewpad/check/<?php echo $name; ?>" method="post">
+	            <form class="form-horizontal" action="http://localhost/test/index.php/interviewpad/check/<?php echo $hash; ?>" method="post">
 	                <div class="form-group">
                     	<label for="Username" class="col-sm-2 control-label">Email</label>
                     	<div class="col-sm-6">

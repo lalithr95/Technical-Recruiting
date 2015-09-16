@@ -70,4 +70,10 @@ class assigne_model extends CI_Model
 		return $data;
 	}
 
+	public function update_status($user_id, $interviewer_id, $data) {
+		$this->db->where('user_id', $user_id);
+		$this->db->where('interviewer_id', $interviewer_id);
+		$this->db->update('assigned', $data);
+	}
+
 }

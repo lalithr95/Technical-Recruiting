@@ -44,8 +44,8 @@
 			<thead>
 				<tr>
 					<th>Inteviewer ID</th>
-					<th>Questions</th>
 					<th>Status</th>
+					<th>Feedback 1-10</th>
 				</tr>
 			</thead>
 			<tbody>
@@ -53,8 +53,9 @@
 				foreach($data as $row) {
 					echo "<tr>";
 					echo "<td>".$row['interviewer_id']."</td>";
-					echo "<td>".$row['question']."</td>";
+					//echo "<td>".$row['question']."</td>";
 					echo "<td>".$row['status']."</td>";
+					echo "<td>".$rate."</td>";
 					echo "</tr>";
 				}
 				?>

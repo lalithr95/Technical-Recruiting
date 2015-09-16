@@ -51,7 +51,49 @@ class Assigned extends CI_Controller
 	public function interviews() {
 		$this->load->model('interviewpad_model');
 		$email = $this->session->userdata('email');
-		
+		$data = $this->interviewpad_model->get_interviews($email);
+		$record = array(
+				'data' => $data
+			);
+		$this->load->view('templates/header');
+		$this->load->view('all_interviews', $record);
+
+	}
+
+	public function interview($id) {
+		$this->load->view('templates/header');
+		$this->load->model('interviewpad_model');
+		$email = $this->session->userdata('email');
+		$this->load->model('question_model');
+		$data = $this->interviewpad_model->get_interview($id);
+		$question  = $this->question_model->get_all($id);
+		$record = array(
+				'id' => $id,
+				'data' => $data,
+				'question' => $question
+			);
+		$this->load->view('interview_show', $record);
+	}
+
+	public function rate($id) {
+		$rate = $this->input->post('rate');
+		$this->load->model('interviewpad_model');
+		$this->load->model('assigne_model');
+		$data = array(
+				'rate' => $rate
+			);
+		$candidate_data = $this->interviewpad_model->get_interview($id);
+		// print_r($candidate_data);
+		$record = array (
+				'done' => 1,
+				'status' => 'completed'
+			);
+		$this->load->model('user_model');
+		$user_id = $this->user_model->get_user_id($candidate_data['invite_to']);
+		$interviewer_id = $this->session->userdata('id');
+		$this->assigne_model->update_status($user_id, $interviewer_id, $record);
+		$this->interviewpad_model->update_rating($id, $data);
+		redirect('/assigned/interviews');
 	}
 
 	public function create_interviewpad($date, $end_date, $name, $user_id, $interviewer_id) {

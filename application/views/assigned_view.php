@@ -20,7 +20,7 @@
         				{
                             echo "<tr>";
         					echo "<td>".$row['id']."</td>";
-        					echo "<td><a href='".base_url()."index.php/applicant/users/".$row['id']."' >".$row['name']."</a></td>";
+        					echo "<td><a href='".base_url()."index.php/applicant/user/".$row['id']."' >".$row['name']."</a></td>";
         				
         					echo "<td>".$row['email']."</td>";
         					echo "<td>".$row['status']."</td>";
