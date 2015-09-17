@@ -41,13 +41,24 @@ class interviewpad extends CI_Controller
 
 	public function submit($hash) {
 		$email = $this->input->post('email');
+		$interview_id = $this->session->userdata('data')['id'];
+		$this->load->model('question_model');
+		$questions = $this->question_model->get_all($interview_id);
+		$question_ids = array();
+		for ($i=0; $i < count($questions); $i++) {
+			array_push($question_ids, $questions[$i]['id']);
+		}
 		$data = array(
-				'answer' => $this->input->post('answer'),
 				'expired' => 1,
 			);
+		// uncommend TODO
 		$this->load->model('interviewpad_model');
 		$this->interviewpad_model->update_solution($hash, $email, $data);
-		// echo "success";
+		$data = array();
+		for ($i=0; $i < count($question_ids); $i++) {
+			$answer = $this->input->post('answer'.$question_ids[$i]);
+			$this->question_model->update_answers($interview_id, $question_ids[$i], $answer);
+		}
 		redirect('/home');
 	}
 

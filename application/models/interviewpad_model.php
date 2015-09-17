@@ -33,6 +33,11 @@ class interviewpad_model extends CI_Model
 		return FALSE;
 	}
 
+	public function update_avgrate($id, $rate) {
+		$this->db->where('id', $id);
+		$this->db->update('interview_pad', array('rate' => $rate));
+	}
+
 	public function get_interviews($email) {
 		$this->db->where('interviewer_id', $email);
 		$data = $this->db->get('interview_pad');

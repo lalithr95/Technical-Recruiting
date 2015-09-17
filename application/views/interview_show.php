@@ -103,8 +103,13 @@
           				<h4 class="modal-title">Answers</h4>
        				</div>
         			<div class="modal-body">
-        				<?php echo $data['answer']; ?>
-
+        				<?php 
+        					foreach($question as $q ) {
+		        				echo "<h5>".$q['name']."</h5>";
+								echo $q['answer'];
+		        				echo "<br>";
+        					}
+        				?>
         			</div>
 			        <div class="modal-footer">
 			          	<button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
@@ -115,26 +120,41 @@
   		</div>
 
   		<h4> Question </h4>
+ 	<form class="form-horizontal" action="http://localhost/test/index.php/question/rate/<?php echo $data['id']; ?>" method="post">
+
         <table class="table table-hover" >
         	<thead>
         		<tr>
         			<th>Question ID </th>
         			<th>Question</th>
+        			<th>Rating </th>
         		</th>
         	</thead>
         	<tbody>
-        		<?php 
-        			foreach($question as $q) {
-        				echo "<tr>";
-        				echo "<td>".$q['id']."</td>";
-        				echo "<td>".$q['name']."</td>";
-        				echo "</tr>";
-        			}
+	        		<?php 
+	        			foreach($question as $q) {
+	        				echo "<tr>";
+	        				echo "<td>".$q['id']."</td>";
+	        				echo "<td>".$q['name']."</td>";
+	        				if ($q['rate']) {
+	        					echo "<td>".$q['rate']."</td>";
+	        				}
+	        				else {
+	        					echo "<td><input type='text' class='form-control' placeholder='Provide Feedback Rating (1-10)' name='".$q['id']."'></td>";
+	        				}
+	        				echo "</tr>";
+	        			}
 
-        		?>
+	        		?>
+	        	
         	</tbody>
         </table>
-        		
+       	<div class="form-group">
+            <div class="col-sm-6">
+                <button type="submit" class="btn btn-info" value="submit">Submit Rating</button>
+            </div>
+        </div>
+    </form>
 
 
 <script>

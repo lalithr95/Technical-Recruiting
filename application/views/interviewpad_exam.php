@@ -2,26 +2,26 @@
 	<div class="jumbotron">
 	    <div class="row">
 	        <div class="col-md-6 col-md-offset-3">
-	        	<h3><?php echo $name; ?></h3>
-	        	<ol>
-	        		<?php
-	        			foreach($questions as $q) {
-	        				echo "<li>".$q['name']."</li>";
-	        			}
-	        		?>
-	        	</ol>
-	        	<hr>
 	        	<form class="form-horizontal" action="http://localhost/test/index.php/interviewpad/submit/<?php echo $hash; ?>" method="post">
-          			<input type="hidden" name="email" value="<?php echo $candidate_email; ?>">
-  					<div class="form-group">
-                        <label for="question" class="col-sm-2 control-label">Question</label>
-                        <div class="col-sm-6">
-                        	<textarea class="form-control" name="answer" rows="5" placeholder="Enter solutions"></textarea>
-                        </div>
-                    </div>                 
+		        	<h3><?php echo $name; ?></h3>
+		        	<ol>
+		        		<?php
+		        			for ($i=0; $i< count($questions); $i++) {
+		        				echo "<li>".$questions[$i]['name']."</li>";
+	  							echo "<div class='form-group'>";
+	                        	echo "<label for='answer' class='col-sm-2 control-label'>Solution</label>";
+	                        	echo "<div class='col-sm-6'>";
+	                        	echo "<textarea class='form-control' name='"."answer".$questions[$i]['id']."' rows='3' placeholder='Enter solutions'></textarea>";
+	                       		echo "</div>";
+	                    		echo "</div>"; 	        				
+		        			}
+		        		?>
+		        	</ol>
+		        	<hr>
+	          		<input type="hidden" name="email" value="<?php echo $candidate_email; ?>">                
                     <div class="form-group">
                         <div class="col-sm-6">
-                            <button type="submit" class="btn btn-info" value="submit">Add</button>
+                            <button type="submit" class="btn btn-info" value="submit">Finsh Interview</button>
                         </div>
                     </div>
                 </form>

@@ -17,5 +17,20 @@ class question_model extends CI_Model
 		return $data;
 	}
 
-	
+	public function update_answers($id, $question_id, $answer) {
+		$this->db->where('interview_id', $id);
+		$this->db->where('id', $question_id);
+		$this->db->update('questions', array('answer' => $answer));
+	}
+
+	public function get_all_count($id) {
+		$this->db->where('interview_id', $id);
+		$data = $this->db->get('questions');
+		return $data->num_rows();
+	}
+
+	public function update_rating($question_id, $rate) {
+		$this->db->where('id', $question_id);
+		$this->db->update('questions', array('rate' => $rate));
+	}
 }

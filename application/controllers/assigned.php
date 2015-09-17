@@ -131,7 +131,7 @@ class Assigned extends CI_Controller
 	    	'wordwrap' => TRUE
 	  	); 
 		$this->load->library('email');
-		$this->email->from('lalithr95@gmail.com', 'Lalith');
+		$this->email->from('lalithr1995@gmail.com', 'Lalith');
 		$this->email->to($email); 
 
 		$this->email->subject('Zomato Hiring');
@@ -161,11 +161,12 @@ class Assigned extends CI_Controller
 	    	'smtp_user' => 'lalithr1995@gmail.com', // change it to yours
 	    	'smtp_pass' => 'adminr95', // change it to yours
 	    	'mailtype' => 'html',
+	    	'starttls'  => true,
 	    	'charset' => 'iso-8859-1',
 	    	'wordwrap' => TRUE
 	  	); 
-		$this->load->library('email');
-		$this->email->from('lalithr95@gmail.com', 'Lalith');
+		$this->load->library('email', $config);
+		$this->email->from('lalithr1995@gmail.com', 'Lalith');
 		$this->email->to($email); 
 
 		$this->email->subject('Zomato Hiring');
