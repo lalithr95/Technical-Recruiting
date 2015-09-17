@@ -11,7 +11,7 @@
 	  							echo "<div class='form-group'>";
 	                        	echo "<label for='answer' class='col-sm-2 control-label'>Solution</label>";
 	                        	echo "<div class='col-sm-6'>";
-	                        	echo "<textarea class='form-control' name='"."answer".$questions[$i]['id']."' rows='3' placeholder='Enter solutions'></textarea>";
+	                        	echo "<textarea class='form-control' name='"."answer".$questions[$i]['id']."' required rows='3' placeholder='Enter solutions'></textarea>";
 	                       		echo "</div>";
 	                    		echo "</div>"; 	        				
 		        			}

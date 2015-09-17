@@ -24,6 +24,8 @@ class Applicant extends CI_Controller
 			$this->load->model('assigne_model');
 			$this->load->model('interviewpad_model');
 			$data = $this->assigne_model->get_applicant($id);
+			print_r($user);
+			echo $this->session->userdata('email');
 			$rating_data = $this->interviewpad_model->get_rating($user[0]['email'], $this->session->userdata('email'));
 			$result = array(
 					'data' => $data,

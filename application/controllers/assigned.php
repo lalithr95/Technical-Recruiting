@@ -5,7 +5,7 @@ class Assigned extends CI_Controller
 	public function __construct() {
 		parent::__construct();
 		if ($this->session->userdata('is_loggedin')) {
-
+			$this->load->model('library_model');
 		}
 		else {
 			redirect('/home');
@@ -63,6 +63,7 @@ class Assigned extends CI_Controller
 	public function interview($id) {
 		$this->load->view('templates/header');
 		$this->load->model('interviewpad_model');
+		$library = $this->library_model->get_questions();
 		$email = $this->session->userdata('email');
 		$this->load->model('question_model');
 		$data = $this->interviewpad_model->get_interview($id);
@@ -70,7 +71,8 @@ class Assigned extends CI_Controller
 		$record = array(
 				'id' => $id,
 				'data' => $data,
-				'question' => $question
+				'question' => $question,
+				'library' => $library
 			);
 		$this->load->view('interview_show', $record);
 	}
@@ -153,13 +155,12 @@ class Assigned extends CI_Controller
 	public function send_mail_reject($id) {
 		$this->load->model('user_model');
 		$email = $this->user_model->get_email($id);
-		// Email configuration
 	  	$config = Array(
 	    	'protocol' => 'smtp',
 	    	'smtp_host' => 'smtp.gmail.com',
 	    	'smtp_port' => 465,
-	    	'smtp_user' => 'lalithr1995@gmail.com', // change it to yours
-	    	'smtp_pass' => 'adminr95', // change it to yours
+	    	'smtp_user' => 'lalithr1995@gmail.com',
+	    	'smtp_pass' => 'adminr95',
 	    	'mailtype' => 'html',
 	    	'starttls'  => true,
 	    	'charset' => 'iso-8859-1',

@@ -20,7 +20,7 @@ class Dashboard extends CI_Controller
 
 		$config['base_url'] = base_url().'index.php/dashboard/index/';
 		$config['total_rows'] = $this->user_model->record_count();
-		$config['per_page'] = 4; 
+		$config['per_page'] = 10; 
 		$config['num_links'] = 5;
 		$config['full_tag_open'] = '<nav><ul class="pagination">';// for bootstrap pagination tag
 		$config['full_tag_close'] = '</ul> </nav>';

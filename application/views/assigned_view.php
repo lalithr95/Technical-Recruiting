@@ -56,13 +56,13 @@
                             <div class="form-group">
                                 <label for="name" class="col-sm-2 control-label">Pad Name</label>
                                 <div class="col-sm-6">
-                                    <input type="text" class="form-control" name="name" >
+                                    <input type="text" required class="form-control" name="name" >
                                 </div>
                             </div>
                             <div class="form-group">
                                 <label for="email" class="col-sm-2 control-label">Assign</label>
                                 <div class="col-sm-6">
-                                    <input type="email" class="form-control" name="email" id="email" placeholder="Enter email" autofocus>
+                                    <input type="email" required class="form-control" name="email" id="email" placeholder="Enter email" autofocus>
                                 </div>
                             </div>                 
                             <div class="form-group">

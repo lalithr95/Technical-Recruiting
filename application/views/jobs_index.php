@@ -18,7 +18,7 @@
 							<div class="form-group">
 					            <label for="name" class="col-sm-4 control-label">Name</label>
 					                <div class="col-sm-7">
-					                    <input type="text" class="form-control" name="name" id="name"   placeholder="Enter Name" autofocus>
+					                    <input type="text" required class="form-control" name="name" id="name"   placeholder="Enter Name" autofocus>
 					                </div>
 	        				</div>
 	        			</td>
@@ -28,7 +28,7 @@
 					        <div class="form-group">
 					            <label for="email" class="col-sm-4 control-label">Email</label>
 					                <div class="col-sm-7">
-					                    <input type="email" class="form-control" name="email" id="email"   placeholder="Enter email" autofocus>
+					                    <input type="email" required class="form-control" name="email" id="email"   placeholder="Enter email" autofocus>
 					                </div>
 					        </div>
 					    </td>

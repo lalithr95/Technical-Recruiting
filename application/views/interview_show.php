@@ -42,9 +42,22 @@
           				<form class="form-horizontal" action="http://localhost/test/index.php/question/add/" method="post">
           					<input type="hidden"  id="pad-id" name="id">
           					<div class="form-group">
-                                <label for="question" class="col-sm-2 control-label">Question</label>
+          						<div class="col-sm-6">
+								    <label for="selectQuestion">Question</label>
+								    <select class="form-control" name="question" required id="selectQuestion">
+								  	<?php
+								  		foreach ($library as $lib) {
+								  			echo "<option>".$lib['question']."</option>";
+								  		}
+								  	?>
+								    </select>
+								</div>
+							</div>
+							<input type="checkbox" id="checked" name="check">
+          					<div class="form-group">
+                                <label for="question" class="col-sm-2 control-label">Custom</label>
                                 <div class="col-sm-6">
-                                	<textarea class="form-control" name="question" rows="5" placeholder="Enter Question text"></textarea>
+                                	<textarea class="form-control" name="question" id="custom" rows="5" placeholder="Enter Question text" disabled></textarea>
                                 </div>
                             </div>                 
                             <div class="form-group">
@@ -75,7 +88,7 @@
           					<div class="form-group">
                                 <label for="question" class="col-sm-2 control-label">Rate</label>
                                 <div class="col-sm-6">
-                                	<input type="text" class="form-control" name="rate" placeholder="Enter Score 1-10">
+                                	<input type="number" class="form-control" name="rate" min="1"  max="10" placeholder="Enter Score 1-10">
                                 </div>
                             </div>                 
                             <div class="form-group">
@@ -140,7 +153,7 @@
 	        					echo "<td>".$q['rate']."</td>";
 	        				}
 	        				else {
-	        					echo "<td><input type='text' class='form-control' placeholder='Provide Feedback Rating (1-10)' name='".$q['id']."'></td>";
+	        					echo "<td><input type='number' class='form-control' required min='1' max='10' placeholder='Provide Feedback Rating (1-10)' name='".$q['id']."'></td>";
 	        				}
 	        				echo "</tr>";
 	        			}
@@ -149,17 +162,27 @@
 	        	
         	</tbody>
         </table>
-       	<div class="form-group">
-            <div class="col-sm-6">
-                <button type="submit" class="btn btn-info" value="submit">Submit Rating</button>
-            </div>
-        </div>
+        <?php
+        if (!$data['rate']) {
+	       	echo '<div class="form-group">';
+	        echo '<div class="col-sm-6">';
+	        echo '<button type="submit" class="btn btn-info" value="submit">Submit Rating</button>';
+	        echo '</div>';
+	        echo '</div>';
+	    }
+        ?>
     </form>
 
 
 <script>
+	$('#checked').click(function () {
+		$("#selectQuestion").prop('disabled', true);
+		$('#custom').prop('disabled', false);
+	});
+
     $(document).on("click", ".add-Quest", function () {
-         var id = $(this).data('id');
-         $(".modal-body #pad-id").val( id );
+        var id = $(this).data('id');
+        $(".modal-body #pad-id").val( id );
     });
 </script>
+

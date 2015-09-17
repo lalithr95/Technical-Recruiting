@@ -17,13 +17,13 @@
                 <div class="form-group">
                         <label for="firstname" class="col-sm-2 control-label">Email</label>
                     <div class="col-sm-6">
-                        <input type="email" class="form-control" name="lemail" id="email" placeholder="Enter Email" autofocus>
+                        <input type="email" class="form-control" name="lemail" id="email" required placeholder="Enter Email" autofocus>
                     </div>
                 </div>
                 <div class="form-group">
                     <label for="password" class="col-sm-2 control-label">Password</label>
                     <div class="col-sm-6">
-                        <input type="password" class="form-control" name="lpassword" id="password" placeholder="Enter Password" autofocus>
+                        <input type="password" class="form-control" name="lpassword" id="password" required placeholder="Enter Password" autofocus>
                     </div>
                 </div>
                 <div class="form-group">
@@ -69,26 +69,26 @@
                             <div class="form-group">
                                 <label for="username" class="col-sm-4 control-label">Username</label>
                                     <div class="col-sm-7">
-                                         <input type="text" class="form-control" name="username" id="username"   placeholder="Enter Username" autofocus>
+                                         <input type="text" class="form-control" name="username" id="username" required  placeholder="Enter Username" autofocus>
                                     </div>
                             </div>
 
                             <div class="form-group">
                                  <label for="email" class="col-sm-4 control-label">Email</label>
                                      <div class="col-sm-7">
-                                            <input type="email" class="form-control" name="email" id="email" placeholder="Enter Email" autofocus>
+                                            <input type="email" class="form-control" name="email" id="email" required placeholder="Enter Email" autofocus>
                                     </div>
                              </div>
                              <div class="form-group">
                                  <label for="password" class="col-sm-4 control-label">Password</label>
                                      <div class="col-sm-7">
-                                            <input type="password" class="form-control" name="password" id="password" placeholder="Enter Password" autofocus>
+                                            <input type="password" class="form-control" name="password" required id="password" placeholder="Enter Password" autofocus>
                                     </div>
                              </div>
                              <div class="form-group">
                                  <label for="confirm-password" class="col-sm-4 control-label">Confirm Password</label>
                                      <div class="col-sm-7">
-                                            <input type="password" class="form-control" name="confirm" id="confirm" placeholder="Confirm password" autofocus>
+                                            <input type="password" class="form-control" required name="confirm" id="confirm" placeholder="Confirm password" autofocus>
                                     </div>
                              </div>
                             <div class="form-group">
